@@ -1,7 +1,6 @@
-package com.streetwalkermobile.app
+package com.streetwalkermobile
 
 import android.app.Application
-import com.streetwalkermobile.BuildConfig
 import com.streetwalkermobile.core.logger.StreetWalkerLogger
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
