@@ -1,0 +1,51 @@
+name: Android CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Run CI checks
+        run: ./gradlew ciCheck
+
+      - name: Assemble Dev Debug
+        run: ./gradlew assembleDevDebug
+
+      - name: Placeholder Beta Distribution
+        run: echo "Upload to Firebase App Distribution would run here."
+
+      - name: Lint Report Artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lint-reports
+          path: app/build/reports/lint-results*.html
+          if-no-files-found: ignore
+
+      - name: Detekt Report Artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: detekt-reports
+          path: build/reports/detekt
+          if-no-files-found: ignore

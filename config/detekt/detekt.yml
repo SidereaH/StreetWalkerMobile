@@ -1,0 +1,13 @@
+defaults:
+  build:
+    excludeCorrectable: false
+config:
+  validation: true
+processors:
+  active: true
+formatting:
+  active: true
+  android: true
+style:
+  MagicNumber:
+    active: false

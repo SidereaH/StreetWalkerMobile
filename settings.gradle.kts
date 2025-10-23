@@ -20,5 +20,16 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "StreetWalkerMobile"
-include(":app")
- 
+include(
+    ":app",
+    ":core:common",
+    ":core:config",
+    ":core:database",
+    ":core:logger",
+    ":core:network",
+    ":feature:friends",
+    ":feature:map",
+    ":feature:markers",
+    ":feature:profile",
+    ":shared:ui"
+)
