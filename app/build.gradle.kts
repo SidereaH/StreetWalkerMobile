@@ -1,8 +1,8 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
-    kotlin("kapt")
+    id("com.android.application")
+    kotlin("android")
+    id("com.google.devtools.ksp")            // <-- вместо kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -42,19 +42,17 @@ android {
 
 dependencies {
     implementation("com.google.dagger:hilt-android:2.57.2")
-    kapt("com.google.dagger:hilt-compiler:2.57.2")
+    ksp("com.google.dagger:hilt-compiler:2.57.2")
 
     // For instrumentation tests
     androidTestImplementation("com.google.dagger:hilt-android-testing:2.57.2")
-    kaptAndroidTest("com.google.dagger:hilt-compiler:2.57.2")
 
     // For local unit tests
-    testImplementation("com.google.dagger:hilt-android-testing:2.57.2")
-    kaptTest("com.google.dagger:hilt-compiler:2.57.2")
     // Core
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
-    implementation("androidx.activity:activity-compose:1.7.2")
+    implementation("androidx.activity:activity-compose:1.8.2")
+
 
     // Compose
     val composeBom = platform("androidx.compose:compose-bom:2023.08.00")
@@ -75,11 +73,10 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
 
-    // Room
+    // Room (KSP поддерживается)
     implementation("androidx.room:room-runtime:2.6.0")
-    kapt("androidx.room:room-compiler:2.6.0")
     implementation("androidx.room:room-ktx:2.6.0")
-
+    ksp("androidx.room:room-compiler:2.6.0") // <-
     // Image loading
     implementation("io.coil-kt:coil-compose:2.4.0")
 

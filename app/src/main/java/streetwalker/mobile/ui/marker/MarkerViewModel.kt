@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import streetwalker.mobile.data.repo.MarkerRepository
 import streetwalker.mobile.domain.models.MarkerEntity
+import java.time.LocalDateTime
 import javax.inject.Inject
 
 @HiltViewModel
@@ -25,7 +26,9 @@ class MarkerViewModel @Inject constructor(
                 latitude = lat,
                 longitude = lon,
                 authorId = "me",
-                visibility = visibility
+                visibility = visibility,
+                photoUrl = "url",
+                localPhotoUri = "uri",
             )
             repo.addMarker(m)
         }
