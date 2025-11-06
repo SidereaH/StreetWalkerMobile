@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.kotlinKapt)
+    alias(libs.plugins.ksp)
     alias(libs.plugins.hiltAndroid)
 }
 
@@ -82,10 +82,6 @@ android {
     }
 }
 
-kapt {
-    correctErrorTypes = true
-}
-
 dependencies {
     implementation(project(":shared:ui"))
     implementation(project(":core:common"))
@@ -114,7 +110,7 @@ dependencies {
     implementation(libs.timber)
     implementation(libs.androidx.compose.material.icons.extended)
 
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
