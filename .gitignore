@@ -13,3 +13,13 @@
 .externalNativeBuild
 .cxx
 local.properties
+core/common/build/
+core/config/build/
+core/database/build/
+core/logger/build/
+core/network/build/
+feature/friends/build/
+feature/map/build/
+feature/markers/build
+feature/profile/build/
+feature/users/shared/ui/build/

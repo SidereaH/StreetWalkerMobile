@@ -1,0 +1,6 @@
+[
+    {
+        "merged": "com.streetwalkermobile.shared.ui-release-41:/drawable-v21/notification_action_background.xml",
+        "source": "com.streetwalkermobile.shared.ui-core-1.12.0-19:/drawable-v21/notification_action_background.xml"
+    }
+]

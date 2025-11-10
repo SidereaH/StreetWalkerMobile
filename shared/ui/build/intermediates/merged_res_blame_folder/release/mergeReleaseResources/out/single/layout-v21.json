@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "com.streetwalkermobile.shared.ui-release-41:/layout-v21/notification_action_tombstone.xml",
+        "source": "com.streetwalkermobile.shared.ui-core-1.12.0-19:/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "com.streetwalkermobile.shared.ui-release-41:/layout-v21/notification_template_icon_group.xml",
+        "source": "com.streetwalkermobile.shared.ui-core-1.12.0-19:/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "com.streetwalkermobile.shared.ui-release-41:/layout-v21/notification_template_custom_big.xml",
+        "source": "com.streetwalkermobile.shared.ui-core-1.12.0-19:/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "com.streetwalkermobile.shared.ui-release-41:/layout-v21/notification_action.xml",
+        "source": "com.streetwalkermobile.shared.ui-core-1.12.0-19:/layout-v21/notification_action.xml"
+    }
+]

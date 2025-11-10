@@ -27,6 +27,10 @@ class StreetWalkerAppState internal constructor(
         navController.navigate(StreetWalkerDestinations.PROFILE)
     }
 
+    fun navigateToUsersDemo() {
+        navController.navigate(StreetWalkerDestinations.USERS)
+    }
+
     fun onBack() {
         if (!navController.popBackStack()) {
             navController.navigate(startDestination)

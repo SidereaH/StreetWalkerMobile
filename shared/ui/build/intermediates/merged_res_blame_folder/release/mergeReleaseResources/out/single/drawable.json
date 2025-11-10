@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "com.streetwalkermobile.shared.ui-release-41:/drawable/notification_tile_bg.xml",
+        "source": "com.streetwalkermobile.shared.ui-core-1.12.0-19:/drawable/notification_tile_bg.xml"
+    },
+    {
+        "merged": "com.streetwalkermobile.shared.ui-release-41:/drawable/abc_vector_test.xml",
+        "source": "com.streetwalkermobile.shared.ui-appcompat-resources-1.6.1-21:/drawable/abc_vector_test.xml"
+    },
+    {
+        "merged": "com.streetwalkermobile.shared.ui-release-41:/drawable/notification_bg_low.xml",
+        "source": "com.streetwalkermobile.shared.ui-core-1.12.0-19:/drawable/notification_bg_low.xml"
+    },
+    {
+        "merged": "com.streetwalkermobile.shared.ui-release-41:/drawable/notification_icon_background.xml",
+        "source": "com.streetwalkermobile.shared.ui-core-1.12.0-19:/drawable/notification_icon_background.xml"
+    },
+    {
+        "merged": "com.streetwalkermobile.shared.ui-release-41:/drawable/notification_bg.xml",
+        "source": "com.streetwalkermobile.shared.ui-core-1.12.0-19:/drawable/notification_bg.xml"
+    }
+]

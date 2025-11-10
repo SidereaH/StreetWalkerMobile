@@ -31,5 +31,6 @@ include(
     ":feature:map",
     ":feature:markers",
     ":feature:profile",
+    ":feature:users",
     ":shared:ui"
 )

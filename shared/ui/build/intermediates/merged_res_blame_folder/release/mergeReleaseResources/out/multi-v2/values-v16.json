@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.streetwalkermobile.shared.ui-mergeReleaseResources-39:/values-v16/values-v16.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\hutor\\.gradle\\caches\\8.10.2\\transforms\\8ad503cc078f0af5c9a175fb0c6540b1\\transformed\\core-1.12.0\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "com.streetwalkermobile.shared.ui-release-41:/values-v16/values-v16.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\hutor\\.gradle\\caches\\8.10.2\\transforms\\8ad503cc078f0af5c9a175fb0c6540b1\\transformed\\core-1.12.0\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -9,6 +9,7 @@ object StreetWalkerDestinations {
     const val MARKERS = "markers/{markerId}"
     const val PROFILE = "profile"
     const val FRIENDS = "friends"
+    const val USERS = "users_api_demo"
 }
 
 object StreetWalkerDeepLinks {

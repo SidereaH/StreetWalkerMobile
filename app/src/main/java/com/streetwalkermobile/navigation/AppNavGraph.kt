@@ -16,6 +16,8 @@ import com.streetwalkermobile.feature.markers.navigation.MarkerDestination
 import com.streetwalkermobile.feature.markers.ui.MarkerRoute
 import com.streetwalkermobile.feature.profile.navigation.ProfileDestination
 import com.streetwalkermobile.feature.profile.ui.ProfileRoute
+import com.streetwalkermobile.feature.users.navigation.UsersDestination
+import com.streetwalkermobile.feature.users.ui.UsersApiDemoRoute
 
 @Composable
 fun AppNavHost(
@@ -30,7 +32,8 @@ fun AppNavHost(
             MapRoute(
                 onMarkerSelected = { markerId -> appState.navigateToMarker(markerId) },
                 onShowFriends = { appState.navigateToFriends() },
-                onShowProfile = { appState.navigateToProfile() }
+                onShowProfile = { appState.navigateToProfile() },
+                onShowUsersDemo = { appState.navigateToUsersDemo() }
             )
         }
 
@@ -48,6 +51,10 @@ fun AppNavHost(
 
         composable(FriendsDestination.route) {
             FriendsRoute(onBack = { appState.onBack() })
+        }
+
+        composable(UsersDestination.route) {
+            UsersApiDemoRoute(onBack = { appState.onBack() })
         }
     }
 }

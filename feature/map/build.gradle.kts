@@ -35,6 +35,8 @@ dependencies {
     implementation(project(":shared:ui"))
     implementation(project(":core:common"))
     implementation(project(":core:database"))
+    // Map rendering (MapLibre GL) for GL style URL
+    implementation("org.maplibre.gl:android-sdk:10.5.0")
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
     implementation(libs.kotlinx.coroutines.core)

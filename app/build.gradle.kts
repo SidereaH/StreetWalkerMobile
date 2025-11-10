@@ -27,7 +27,8 @@ android {
             applicationIdSuffix = ".dev"
             versionNameSuffix = "-dev"
             buildConfigField("String", "ENVIRONMENT", "\"DEV\"")
-            buildConfigField("String", "API_BASE_URL", "\"https://dev.api.streetwalker.example\"")
+            // Local dev API (Android emulator -> host): http://10.0.2.2:8083
+            buildConfigField("String", "API_BASE_URL", "\"http://10.0.2.2:8083\"")
             buildConfigField("String", "MAPS_API_KEY", "\"DEV_MAP_KEY\"")
         }
         create("stage") {
@@ -96,6 +97,7 @@ dependencies {
     implementation(project(":feature:map"))
     implementation(project(":feature:markers"))
     implementation(project(":feature:profile"))
+    implementation(project(":feature:users"))
     implementation(project(":feature:friends"))
 
     implementation(libs.androidx.core.ktx)
