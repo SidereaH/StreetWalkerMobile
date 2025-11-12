@@ -1,7 +1,8 @@
 package com.streetwalkermobile.ui
 
+import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.assertIsDisplayed
-import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import com.streetwalkermobile.core.network.userapi.*
 import com.streetwalkermobile.feature.users.ui.UsersApiDemoRoute
@@ -13,7 +14,7 @@ import org.junit.Test
 
 class UsersApiDemoScreenTest {
     @get:Rule
-    val composeRule = createComposeRule()
+    val composeRule = createAndroidComposeRule<ComponentActivity>()
 
     @Test
     fun users_api_demo_updates_output_after_actions() = runBlocking {

@@ -1,7 +1,8 @@
 package com.streetwalkermobile.ui
 
+import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.assertIsDisplayed
-import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import com.streetwalkermobile.core.config.Environment
 import com.streetwalkermobile.core.config.EnvironmentConfig
@@ -13,7 +14,7 @@ import org.junit.Test
 
 class ProfileScreenTest {
     @get:Rule
-    val composeRule = createComposeRule()
+    val composeRule = createAndroidComposeRule<ComponentActivity>()
 
     @Test
     fun profile_displays_environment_info() {
@@ -32,4 +33,3 @@ class ProfileScreenTest {
         composeRule.onNodeWithText("Maps key: MAP_KEY").assertIsDisplayed()
     }
 }
-

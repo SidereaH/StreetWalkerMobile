@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.hiltAndroid) apply false
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.detekt)
+    id("jacoco")
 }
 
 detekt {
@@ -23,6 +24,9 @@ subprojects {
                 config.setFrom(files(rootProject.file("config/detekt/detekt.yml")))
             }
         }
+        // Apply JaCoCo to all Android modules as per docs
+        plugins.withId("com.android.application") { pluginManager.apply("jacoco") }
+        plugins.withId("com.android.library") { pluginManager.apply("jacoco") }
     }
 }
 
@@ -35,8 +39,6 @@ tasks.register("ciCheck") {
 }
 
 // --- JaCoCo multi-module coverage aggregation (unit + androidTest) ---
-plugins.apply("jacoco")
-
 jacoco {
     toolVersion = "0.8.10"
 }
@@ -84,5 +86,3 @@ tasks.register<JacocoReport>("jacocoReportAll") {
         html.outputLocation.set(layout.buildDirectory.dir("reports/jacoco/html"))
     }
 }
-import org.gradle.testing.jacoco.tasks.JacocoMerge
-import org.gradle.testing.jacoco.tasks.JacocoReport

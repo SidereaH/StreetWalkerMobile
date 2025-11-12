@@ -1,7 +1,8 @@
 package com.streetwalkermobile.ui
 
+import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.assertIsDisplayed
-import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import com.streetwalkermobile.feature.map.ui.MapRoute
@@ -12,7 +13,7 @@ import java.util.concurrent.atomic.AtomicBoolean
 
 class MapScreenTest {
     @get:Rule
-    val composeRule = createComposeRule()
+    val composeRule = createAndroidComposeRule<ComponentActivity>()
 
     @Test
     fun map_top_bar_and_actions_are_visible_and_clickable() {
@@ -38,4 +39,3 @@ class MapScreenTest {
         assert(profileClicked.get())
     }
 }
-

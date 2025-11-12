@@ -1,7 +1,8 @@
 package com.streetwalkermobile.ui
 
+import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.assertIsDisplayed
-import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import com.streetwalkermobile.feature.friends.ui.FriendsRoute
 import com.streetwalkermobile.feature.friends.viewmodel.FriendsViewModel
@@ -11,7 +12,7 @@ import org.junit.Test
 
 class FriendsScreenTest {
     @get:Rule
-    val composeRule = createComposeRule()
+    val composeRule = createAndroidComposeRule<ComponentActivity>()
 
     @Test
     fun friends_screen_shows_titles() {
@@ -28,4 +29,3 @@ class FriendsScreenTest {
         composeRule.onNodeWithText("Suggested").assertIsDisplayed()
     }
 }
-

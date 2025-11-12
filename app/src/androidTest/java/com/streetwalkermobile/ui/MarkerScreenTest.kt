@@ -1,7 +1,8 @@
 package com.streetwalkermobile.ui
 
+import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.assertIsDisplayed
-import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.lifecycle.SavedStateHandle
 import com.streetwalkermobile.feature.markers.ui.MarkerRoute
@@ -17,7 +18,7 @@ import org.junit.Test
 
 class MarkerScreenTest {
     @get:Rule
-    val composeRule = createComposeRule()
+    val composeRule = createAndroidComposeRule<ComponentActivity>()
 
     private fun fakeMarkerRepository(): MarkerRepository {
         val dao = object : com.streetwalkermobile.core.database.dao.MarkerDao {
