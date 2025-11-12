@@ -33,3 +33,56 @@ tasks.register("ciCheck") {
         ":app:testDevDebugUnitTest"
     )
 }
+
+// --- JaCoCo multi-module coverage aggregation (unit + androidTest) ---
+plugins.apply("jacoco")
+
+jacoco {
+    toolVersion = "0.8.10"
+}
+
+// Merge all execution data from subprojects (both .exec and .ec)
+tasks.register<JacocoMerge>("jacocoMergeAll") {
+    group = "verification"
+    description = "Merges all JaCoCo execution data across modules"
+    executionData(fileTree(projectDir) {
+        include("**/build/**/*.exec")
+        include("**/build/**/*.ec")
+    })
+    destinationFile = layout.buildDirectory.file("jacoco/merged.exec").get().asFile
+    doFirst {
+        // Filter missing files to avoid warnings
+        executionData = executionData.filter { it.exists() }
+    }
+}
+
+tasks.register<JacocoReport>("jacocoReportAll") {
+    group = "verification"
+    description = "Generates a combined coverage report for all modules"
+    dependsOn("jacocoMergeAll")
+
+    val classDirs = files(subprojects.map { sp ->
+        sp.fileTree("${sp.buildDir}/tmp/kotlin-classes/debug") {
+            exclude(
+                // Exclude generated and Android classes
+                "**/R.class", "**/R$*.class", "**/BuildConfig.*", "**/Manifest*.*",
+                "**/*Test*.*", "**/androidTest/**", "**/*Hilt*.*", "**/*_Factory.*",
+                "**/*Directions*.*", "**/*Args*.*"
+            )
+        }
+    })
+
+    classDirectories.setFrom(classDirs)
+    sourceDirectories.setFrom(files(subprojects.map { sp -> listOf(sp.file("src/main/java"), sp.file("src/main/kotlin")) }))
+    executionData.setFrom(layout.buildDirectory.file("jacoco/merged.exec"))
+
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+        csv.required.set(false)
+        xml.outputLocation.set(layout.buildDirectory.file("reports/jacoco/jacocoReportAll.xml"))
+        html.outputLocation.set(layout.buildDirectory.dir("reports/jacoco/html"))
+    }
+}
+import org.gradle.testing.jacoco.tasks.JacocoMerge
+import org.gradle.testing.jacoco.tasks.JacocoReport

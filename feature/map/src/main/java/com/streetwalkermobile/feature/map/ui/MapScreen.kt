@@ -1,11 +1,15 @@
+@file:OptIn(ExperimentalMaterial3Api::class)
+
 package com.streetwalkermobile.feature.map.ui
 
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.IconButton
 import androidx.compose.material.icons.filled.Group
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.ui.Modifier
@@ -24,7 +28,7 @@ import androidx.compose.runtime.remember
 
 private const val DEFAULT_GL_STYLE_URL = "http://83.136.235.215:8080/styles/street-walker/style.json"
 
-@Suppress("UnusedParameter")
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MapRoute(
     onMarkerSelected: (String) -> Unit,
@@ -54,9 +58,11 @@ fun MapRoute(
                 contentDescription = "Profile"
             )
         }
-    ) { _ ->
+    ) { innerPadding ->
         MapLibreMap(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding),
             styleUrl = DEFAULT_GL_STYLE_URL
         )
     }

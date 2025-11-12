@@ -23,3 +23,6 @@ feature/map/build/
 feature/markers/build
 feature/profile/build/
 feature/users/shared/ui/build/
+feature/users/build
+core/database/schemas/
+shared/ui/build
